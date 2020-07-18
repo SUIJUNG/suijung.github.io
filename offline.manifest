@@ -1,0 +1,14 @@
+CACHE%20MANIFEST
+/ps4.html
+/ps4.505.html
+/ps4.672.html
+/mira/mira2.js
+/mira/mira.js
+/mira/c-code.js
+/jb/c-code.js
+/common/syscalls2.js
+/common/syscalls.js
+/common/rop.js
+/common/malloc.js
+/common/helpers.js
+/common/exploit.js
