@@ -1,15 +1,3 @@
 CACHE MANIFEST
-ps4.672.html
+
 ps4.505.html
-ps4.html
-functions.js
-mira/c-code.js
-mira/mira.js
-mira/mira2.js
-jb/c-code.js
-common/syscalls2.js
-common/syscalls.js
-common/rop.js
-common/malloc.js
-common/helpers.js
-common/exploit.js
