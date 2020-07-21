@@ -38,7 +38,7 @@ function initROP()
 		jump_1_addr=0;
 		total_loops++;
 		clearLogEntry();
-		usb_fp=convertString("xxxx/dev_hdd0/photo/"+y+"/"+m+"/"+d+"/"+"image.jpg")+unescape("\u0000")+convertString(fread_mode)+unescape("\u0000\u0000\u4141\u4141\u4141\u4141")
+		usb_fp=convertString("xxxx/dev_hdd0/photo/"+y+"/"+m+"/"+d+"/"+"flash_486.jpg")+unescape("\u0000")+convertString(fread_mode)+unescape("\u0000\u0000\u4141\u4141\u4141\u4141")
 		+hexw2bin(gadget3_addr)+hexw2bin(toc_addr)+unescape("\u0000\u4141\u4141\u4141\u4141\u4141\u4141\u4141\u4141")+hexw2bin(gadget7_addr)+hexw2bin(toc_addr)+unescape("\uFD7E");
 		function reload()
 		{
@@ -212,7 +212,7 @@ function triggerX()
 	</font>
 	<h3><i><b>Flasher NOR 4.86HFW</b></i></h3>
 	<hr><h2><b><u>Step</u> 1:</b></h2>
-	<h3><b><a href="image.jpg">Tekan <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAIAAAA2bnI+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNv1OCegAAALISURBVDhPY/h/YToaOruxz8bGVkpcgpeHR1JM3MbGZv+ydjQ1QISic8fcmmB3SylxYS5ubl5uHiEVWR5eHm5ubnFRIW9Hk1WTSpEVI3R2lsXKSIpycnPzcHFz8HBzSAroLCrn01NkB5rBxQ00S1JMODfOG64eqnNKfSrQKqDxQMDFw80jyKdQG6F1Y7pCXSS3ED9QEGg1Dw8P0PKu8niEzhOrWmWlxCDagICTh1vc2Uj3RLf6ngbdw13CNjpAbUA7IUBaQvTUmg6ozsxoL6gwCHBxi/Cq9KXone4TsNNW396gOSOXS5AX6GA48HcxB+l8fmS2nLQ4VAwUMFyijrraJ3ulUl0FefmkU930z00Uj7AFSsAB0M1nN05g8PDwgPC5gH4BOktKSH19lcr8fD5ZMS4eXl45UfUVpTr72/j15Xm5gMEHBZaWlgzCwrCA4QbGH5dcgZ/W+T6JMBuIJcDQEnU3VL0yWbkqjI+PE8gFCXJxCQoKMoiIiIB4YHcKW6jqHulUW1TCJynCCwZ8QCTEp9CbpLOnRchMFRi+QJXAQAbpdHZ2BnIE+PnFpcW0J2YYn50s7mAoKCUuKCkuJAki+aXEJAxU9Xa3a0/IEJQSERIQAOo0NTVleHxwpoqirKSYmKyjoeGFqWbXZ1ruaLPY2Wa+q818d5vFrjazXW3WO9pNLk7VvzVbPsReUlxcTUnu5JouUKxUZYZJy8nqFUVYrGu0WtdgtqERiMzXN1qsB5FAZLq+0XJtg9m6Buu+fElFufwEX2h8Xtvaa26ir6KprqyFBaGJW5rqP9k/CaoTiOa2ZVmbG2niBRoaGrYWRiv6CyFaoDqBaO2UUmc7S11dXT1sACjubGexvC8frh6hE4hubOutz4t0d7Y1MjIyhgEg29PFtrkw5tb2XmTFKDohaNfCZisrK3NzcwsLCwi5eVYtmpr/F6YDAKT6XV0sp3K+AAAAAElFTkSuQmCC"> Disini. File → Save Target → System Storage (Photo)</a></b></h3>
+	<h3><b><a href="flash_486.jpg">Tekan <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAASCAIAAAA2bnI+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjEuNv1OCegAAALISURBVDhPY/h/YToaOruxz8bGVkpcgpeHR1JM3MbGZv+ydjQ1QISic8fcmmB3SylxYS5ubl5uHiEVWR5eHm5ubnFRIW9Hk1WTSpEVI3R2lsXKSIpycnPzcHFz8HBzSAroLCrn01NkB5rBxQ00S1JMODfOG64eqnNKfSrQKqDxQMDFw80jyKdQG6F1Y7pCXSS3ED9QEGg1Dw8P0PKu8niEzhOrWmWlxCDagICTh1vc2Uj3RLf6ngbdw13CNjpAbUA7IUBaQvTUmg6ozsxoL6gwCHBxi/Cq9KXone4TsNNW396gOSOXS5AX6GA48HcxB+l8fmS2nLQ4VAwUMFyijrraJ3ulUl0FefmkU930z00Uj7AFSsAB0M1nN05g8PDwgPC5gH4BOktKSH19lcr8fD5ZMS4eXl45UfUVpTr72/j15Xm5gMEHBZaWlgzCwrCA4QbGH5dcgZ/W+T6JMBuIJcDQEnU3VL0yWbkqjI+PE8gFCXJxCQoKMoiIiIB4YHcKW6jqHulUW1TCJynCCwZ8QCTEp9CbpLOnRchMFRi+QJXAQAbpdHZ2BnIE+PnFpcW0J2YYn50s7mAoKCUuKCkuJAki+aXEJAxU9Xa3a0/IEJQSERIQAOo0NTVleHxwpoqirKSYmKyjoeGFqWbXZ1ruaLPY2Wa+q818d5vFrjazXW3WO9pNLk7VvzVbPsReUlxcTUnu5JouUKxUZYZJy8nqFUVYrGu0WtdgtqERiMzXN1qsB5FAZLq+0XJtg9m6Buu+fElFufwEX2h8Xtvaa26ir6KprqyFBaGJW5rqP9k/CaoTiOa2ZVmbG2niBRoaGrYWRiv6CyFaoDqBaO2UUmc7S11dXT1sACjubGexvC8frh6hE4hubOutz4t0d7Y1MjIyhgEg29PFtrkw5tb2XmTFKDohaNfCZisrK3NzcwsLCwi5eVYtmpr/F6YDAKT6XV0sp3K+AAAAAElFTkSuQmCC"> Disini. File → Save Target → System Storage (Photo)</a></b></h3>
 	<p><b><span id="filePath"></span></b></p>
 	<h2><b><u>Step</u> 2:</b></h2>
 	<button id="btnROP" type="button" onclick="initROP();">Inisialisasi eksploitasi</button>
@@ -229,7 +229,7 @@ function triggerX()
 		var y = n.getFullYear();
 		var m = ("0" + (n.getMonth() + 1)).slice(-2);
 		var d = ("0" + n.getDate()).slice(-2);
-		document.getElementById("filePath").innerHTML = "/dev_hdd0/photo/" + y + "/" + m + "/" + d + "/" + "image.jpg";
+		document.getElementById("filePath").innerHTML = "/dev_hdd0/photo/" + y + "/" + m + "/" + d + "/" + "flash_486.jpg";
 		writeEnvInfo();
 		ps3chk();
 	</script>
