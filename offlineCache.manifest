@@ -1,11 +1,11 @@
 CACHE MANIFEST
-
-ps4.505.html
+# v1.0 : 23-07-2020
  
 CACHE:
 # pages
 ps4.672.html
- 
+ps4.505.html
+
 # scripts
 c-code.js
 exploit.js
