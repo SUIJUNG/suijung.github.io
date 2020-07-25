@@ -20,14 +20,14 @@
 }
 </style>
 <body>
-<script>window.applicationCache.ondownloading=function(){alert("Page Caching started !!")};window.applicationCache.onprogress=function(a){document.getElementById("progress").innerHTML="<h3 style='color:green'>Caching Status: "+(Math.round(100*(a.loaded/a.total)))+"% Completed</h3>"};window.applicationCache.oncached=function(){alert("Page Cached Successfully!!")};</script>
+<script>window.applicationCache.ondownloading=function(){alert("Caching Halaman dimulai !!")};window.applicationCache.onprogress=function(a){document.getElementById("progress").innerHTML="<h3 style='color:green'>Caching Status: "+(Math.round(100*(a.loaded/a.total)))+"% Completed</h3>"};window.applicationCache.oncached=function(){alert("Halaman Cached Berhasil !!")};</script>
 <script>
 function load_payload() {
   document.write('<script src="loader.js"><\/scr' + 'ipt><script src="payload.js"><\/scr' + 'ipt><script src="c-code.js"><\/scr' + 'ipt><script>payload_finished();<\/scr' + 'ipt>');
 }
 
 function payload_finished() {
-  document.write("<h1 style='color:blue;font-size: 45px;'>Payload Sukses! <br> Keluar dari jendela ini menggunakan tombol PS.</h1>");
+  document.write("<h1 style='color:blue;font-size: 45px;'>HEN Sukses! <br> Keluar dari jendela ini menggunakan tombol PS.</h1>");
   //read_ptr_at(0);
 }
 
