@@ -1,5 +1,4 @@
-// syscalls.js
-
+//syscalls.js
 var sys_670_addr = libkernel_base+0x1efc0;
 var sys_192_addr = libkernel_base+0x1efe0;
 var sys_586_addr = libkernel_base+0x1f000;
@@ -309,7 +308,6 @@ var sys_559_addr = libkernel_base+0x21750;
 var sys_133_addr = libkernel_base+0x21770;
 
 // syscalls2.js
-
 var aio_init_addr = sys_670_addr;
 var fpathconf_addr = sys_192_addr;
 var dmem_container_addr = sys_586_addr;

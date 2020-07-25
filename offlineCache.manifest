@@ -1,0 +1,20 @@
+CACHE MANIFEST
+# v1.0 : 23-07-2020
+ 
+CACHE:
+# pages
+ps4.672.html
+ 
+# scripts
+c-code.js
+exploit.js
+helpers.js
+jailbreak.js
+loader.js
+malloc.js
+payload.js
+rop.js
+syscalls.js
+ 
+NETWORK:
+*
