@@ -10,7 +10,7 @@ function jb_finished()
 
 function payload_finished()
 {
-    setTimeout(function(){alert("Load Successful!!"); }, 4000);
+    setTimeout(function(){alert("HEN BERHASIL !!"); }, 4000);
 }
 
 function SC(x)

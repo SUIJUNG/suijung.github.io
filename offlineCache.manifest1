@@ -3,7 +3,7 @@ CACHE MANIFEST
  
 CACHE:
 # pages
-index.html
+ps4.672.AL.html
  
 # scripts
 functions.js
@@ -20,17 +20,7 @@ jb/set4.js
 jb/jb.js
 payloads/mira.js
 payloads/mirahen.js
-payloads/miranohb.js
 payloads/c-code.js
-payloads/app2usb.js
-payloads/backup.js
-payloads/disableupdates.js
-payloads/dumper.js
-payloads/enableupdates.js
-payloads/ftp.js
-payloads/historyblocker.js
-payloads/kerneldumper.js
-payloads/restore.js
  
 NETWORK:
 *
