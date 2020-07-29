@@ -56,8 +56,6 @@ function load_payload(payload)
 						'  color: White;'+
 						'}'+
 						'</style>');
-		document.write('<marquee style="font-size:20px;color:red;margin-top:120px;">+Offline Cache</marquee>'+
-						'<div>'+
 						'<table id="table" align="center" style="width:600px;margin-top:30px;">'+							
 						'</tr>'+
 						'<tr>'+
