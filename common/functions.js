@@ -93,7 +93,7 @@ function load_payload(payload)
 			       		'<div>'+
 						'<table id="table" align="center" style="width:600px;margin-top:30px;">'+
 						'<tr>'+
- 						'<td align="center" colspan="2"><a href="#" style="display:none;" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">HEN</a></td>'+
+ 						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">HEN</a></td>'+
 						'</tr>'+
 						'</table></div>');
 	}else{
