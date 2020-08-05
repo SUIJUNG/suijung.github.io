@@ -90,12 +90,7 @@ function load_payload(payload)
 						'}'+
 						'</style>');
 		document.write('<h1 id="progress" style="margin-top:30px;text-align:center;">Proses Jailbreak , Silahkan Tunggu!!</h1><hr>'+
-			       		'<div>'+
-						'<table id="table" align="center" style="width:600px;margin-top:30px;">'+
-						'<tr>'+
-						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">HEN</a></td>'+
-						'</tr>'+
-						'</table></div>');
+
 	}else{
 		document.write('<script>document.getElementById("progress").innerHTML="Proses Jailbreak , Silahkan Tunggu!!";</scr'+'ipt>');
 	}
