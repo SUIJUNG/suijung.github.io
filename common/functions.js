@@ -12,6 +12,7 @@ function payload_finished()
 {
 	setCookie("JB","DONE",30);
 	setTimeout(function(){document.getElementById("progress").innerHTML="HEN BERHASIL!!"; }, 3000);
+	setTimeout(function(){document.getElementById("progress").innerHTML="JAGAN DI TEKAN LAGI TOMBOL HEN!! JIKA HEN SUDAH BERHASIL"; }, 7000);
 }
 
 function SC(x)
@@ -61,7 +62,7 @@ function exploit(){
 			       		'<div>'+
 						'<table id="table" align="center" style="width:600px;margin-top:30px;">'+
 						'<tr>'+
-						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">JAGAN DI TEKAN LAGI TOMBOL INI!! JIKA HEN SUDAH BERHASIL</a></td>'+
+						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">HEN</a></td>'+
 						'</tr>'+
 						'</table></div>');
 	}else{
@@ -93,7 +94,7 @@ function load_payload(payload)
 			       		'<div>'+
 						'<table id="table" align="center" style="width:600px;margin-top:30px;">'+
 						'<tr>'+
- 						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">JAGAN DI TEKAN LAGI TOMBOL INI!! JIKA HEN SUDAH BERHASIL</a></td>'+
+ 						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">HEN</a></td>'+
 						'</tr>'+
 						'</table></div>');
 	}else{
