@@ -12,7 +12,7 @@ function payload_finished()
 {
 	setCookie("JB","DONE",30);
 	setTimeout(function(){document.getElementById("progress").innerHTML="HEN BERHASIL!!"; }, 3000);
-	setTimeout(function(){document.getElementById("progress").innerHTML="JAGAN DI TEKAN LAGI TOMBOL HEN!! JIKA HEN SUDAH BERHASIL"; }, 7000);
+	setTimeout(function(){document.getElementById("progress").innerHTML="JANGAN DI TEKAN LAGI TOMBOL HEN!! JIKA HEN SUDAH BERHASIL"; }, 7000);
 }
 
 function SC(x)
