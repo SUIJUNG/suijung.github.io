@@ -73,6 +73,41 @@ function exploit(){
 	setTimeout(function(){document.write(JB('jb'));}, 500);
 }
 
+function load_payload(payload)
+{	
+    if(document.getElementById('table') == null){
+		document.write('<style>'+
+						'.button {'+
+						'  background-color: #003263;'+
+						'  border-radius: 5px;'+
+						'  color: white;'+
+						'  padding: .5em;'+
+						'  text-decoration: none;'+
+						'  height:100%;'+
+						'  display:inline-table;'+
+						'}'+
+						'.button:focus,'+
+						'.button:hover {'+
+						'  background-color: #007bff;'+
+						'  color: White;'+
+						'}'+
+						'</style>');
+		document.write('<h1 id="progress" style="margin-top:30px;text-align:center;">Loading! Please Wait!!</h1><hr>'+
+			       		'<div>'+
+						'<table id="table" align="center" style="width:600px;margin-top:30px;">'+
+						'<tr>'+
+						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'mirahen\'); return false" style="width:28%">MIRA + HEN</a>&nbsp;'+
+						'<a href="#" class="button" onclick="load_payload(\'miranohb\'); return false" style="width:28%">MIRA No HB</a>&nbsp;'+
+						'<a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">Mira UnOfficial</a></td>'+
+						'</tr>'+
+						'</table></div>');
+	}else{
+		document.write('<script>document.getElementById("progress").innerHTML="Loading! Please Wait!!";</scr'+'ipt>');
+	}
+	setCookie("JB","START",30);
+	setTimeout(function(){document.write(PAYLOAD('mira')+PAYLOAD(payload)+PAYLOAD('c-code')+'<script>payload_finished();</scr'+'ipt>');}, 500);
+}
+
 function getCookie(name) {
   var name = name + "=";
   var decodedCookie = decodeURIComponent(document.cookie);
