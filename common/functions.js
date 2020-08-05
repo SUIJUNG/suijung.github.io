@@ -2,17 +2,16 @@ function jb_finished()
 {
     if(main_ret == 179 || main_ret == 0){
 		setCookie("JB","DONE",30);
-		setTimeout(function(){document.getElementById("progress").innerHTML="PS4 Jailbreak 6.72 Exploit Complete ✔"; }, 500);
+		setTimeout(function(){document.getElementById("progress").innerHTML="Jailbreak Berhasil , Silahkan Tekan Tombol HEN dibawah ini !!"; }, 500);
     } else{
-        	setTimeout(function(){document.getElementById("progress").innerHTML="Jailbreak failed! Reboot your PS4 and try again!!"; }, 500);
+        	setTimeout(function(){document.getElementById("progress").innerHTML="Jailbreak gagal! Restart PS4 Anda dan coba lagi !!"; }, 500);
     }
 }
 
 function payload_finished()
 {
 	setCookie("JB","DONE",30);
-	setTimeout(function(){document.getElementById("progress").innerHTML="Load Successful!!"; }, 3000);
-	setTimeout(function(){document.getElementById("progress").innerHTML="PS4 Jailbreak 6.72 Payload Loaded Succesfully ✔"; }, 7000);
+	setTimeout(function(){document.getElementById("progress").innerHTML="HEN BERHASIL!!"; }, 3000);
 }
 
 function SC(x)
@@ -36,7 +35,7 @@ function load_JB()
 		setCookie("JB","START",30);
 		exploit();	
 	}else{
-		setTimeout(function(){document.getElementById("progress").innerHTML="PS4 Jailbreak 6.72 Exploit Complete ✔"; }, 500);
+		setTimeout(function(){document.getElementById("progress").innerHTML="Proses Jailbreak , Silahkan Tunggu!!"; }, 500);
 	}
 }
 
@@ -58,17 +57,15 @@ function exploit(){
 						'  color: White;'+
 						'}'+
 						'</style>');
-		document.write('<h1 id="progress" style="margin-top:30px;text-align:center;">Running Jailbreak Exploit!!</h1><hr>'+
+		document.write('<h1 id="progress" style="margin-top:30px;text-align:center;">Proses Jailbreak , Silahkan Tunggu!!</h1><hr>'+
 			       		'<div>'+
 						'<table id="table" align="center" style="width:600px;margin-top:30px;">'+
 						'<tr>'+
-						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'mirahen\'); return false" style="width:28%">MIRA + HEN</a>&nbsp;'+
-						'<a href="#" class="button" onclick="load_payload(\'miranohb\'); return false" style="width:28%">MIRA No HB</a>&nbsp;'+
-						'<a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">Mira UnOfficial</a></td>'+
+						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">Mira UnOfficial</a></td>'+
 						'</tr>'+
 						'</table></div>');
 	}else{
-		document.write('<script>document.getElementById("progress").innerHTML="Running Jailbreak Exploit!!";</scr'+'ipt>');
+		document.write('<script>document.getElementById("progress").innerHTML="Proses Jailbreak , Silahkan Tunggu!!";</scr'+'ipt>');
 	}
 	setTimeout(function(){document.write(JB('jb'));}, 500);
 }
@@ -92,17 +89,15 @@ function load_payload(payload)
 						'  color: White;'+
 						'}'+
 						'</style>');
-		document.write('<h1 id="progress" style="margin-top:30px;text-align:center;">Loading! Please Wait!!</h1><hr>'+
+		document.write('<h1 id="progress" style="margin-top:30px;text-align:center;">Proses Jailbreak , Silahkan Tunggu!!</h1><hr>'+
 			       		'<div>'+
 						'<table id="table" align="center" style="width:600px;margin-top:30px;">'+
 						'<tr>'+
-						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'mirahen\'); return false" style="width:28%">MIRA + HEN</a>&nbsp;'+
-						'<a href="#" class="button" onclick="load_payload(\'miranohb\'); return false" style="width:28%">MIRA No HB</a>&nbsp;'+
-						'<a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">Mira UnOfficial</a></td>'+
+						'<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">Mira UnOfficial</a></td>'+
 						'</tr>'+
 						'</table></div>');
 	}else{
-		document.write('<script>document.getElementById("progress").innerHTML="Loading! Please Wait!!";</scr'+'ipt>');
+		document.write('<script>document.getElementById("progress").innerHTML="Proses Jailbreak , Silahkan Tunggu!!";</scr'+'ipt>');
 	}
 	setCookie("JB","START",30);
 	setTimeout(function(){document.write(PAYLOAD('mira')+PAYLOAD(payload)+PAYLOAD('c-code')+'<script>payload_finished();</scr'+'ipt>');}, 500);
