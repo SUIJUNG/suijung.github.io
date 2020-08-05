@@ -4,7 +4,7 @@ function jb_finished()
 		setCookie("JB","DONE",30);
 		setTimeout(function(){document.getElementById("progress").innerHTML="Jailbreak Berhasil , Silahkan Tekan Tombol HEN dibawah ini !!"; }, 500);
     } else{
-        	setTimeout(function(){document.getElementById("progress").innerHTML="Jailbreak gagal! Restart PS4 Anda dan coba lagi !!"; }, 500);
+        	setTimeout(function(){document.getElementById("progress").innerHTML="Jailbreak gagal! MATIKAN PS4 Anda dan coba lagi !!"; }, 500);
     }
 }
 
