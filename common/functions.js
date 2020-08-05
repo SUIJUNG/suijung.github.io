@@ -89,10 +89,15 @@ function load_payload(payload)
 						'  color: White;'+
 						'}'+
 						'</style>');
-		document.write('<h1 id="progress" style="margin-top:30px;text-align:center;">Proses Jailbreak , Silahkan Tunggu!!</h1><hr>'+
-
+		document.write('<h1 id="progress" style="margin-top:30px;text-align:center;">Proses HEN , Silahkan Tunggu!!</h1><hr>'+
+			       		'<div>'+
+						'<table id="table" align="center" style="width:600px;margin-top:30px;">'+
+						'<tr>'+
+ 						'<td align="center" colspan="2"><a href="#" style="display:none;" class="button" onclick="load_payload(\'miraunofficial\'); return false" style="width:28%">HEN</a></td>'+
+						'</tr>'+
+						'</table></div>');
 	}else{
-		document.write('<script>document.getElementById("progress").innerHTML="Proses Jailbreak , Silahkan Tunggu!!";</scr'+'ipt>');
+		document.write('<script>document.getElementById("progress").innerHTML="Proses HEN , Silahkan Tunggu!!";</scr'+'ipt>');
 	}
 	setCookie("JB","START",30);
 	setTimeout(function(){document.write(PAYLOAD('mira')+PAYLOAD(payload)+PAYLOAD('c-code')+'<script>payload_finished();</scr'+'ipt>');}, 500);
