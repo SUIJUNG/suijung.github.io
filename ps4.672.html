@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head style="background-color:#050505;">
-  <title>PS4Brew 6.70 - 6.72</title>
+<head>
+  <title>PS4Brew 4.55</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     .loader {
@@ -27,7 +27,6 @@
       top: 50%;
       left: 50%;
 
-      color: white;
       font-size: 45px;
       font-family: sans-serif;
 
@@ -54,24 +53,9 @@
     }
   </style>
 </head>
-<body style="margin:0;background-color:#050505;">
-<script>
-    function allset() {
-      document.getElementById("loader").style.display = "none";
-      document.getElementById("awaiting").style.display = "none";
-      document.getElementById("allset").style.display = "block";
-    }
 
-    function awaitpl() {
-      document.getElementById("loader").style.display = "none";
-      document.getElementById("awaiting").style.display = "block";
-    }
-</script>
+<body onload="runExploit()" style="margin:0;">
   <div id="loader" class="loader"></div>
-
-  <div id="awaiting" class="info" style="display:none;">
-    Awaiting Payload...
-  </div>
 
   <div id="allset" class="info" style="display:none;">
     You're all set!
@@ -82,14 +66,41 @@
   </div>
 
   <div id="badfw" class="info" style="display:none;">
-    Only firmware 6.70 - 6.72 is supported!
+    Only firmware 4.55 is supported!
   </div>
 
-  <script src="./payload.js"></script>
-  <script src="./rop.js"></script>
-  <script src="./syscalls.js"></script>
-  <script src="./userland.js"></script>
-  <script src="./expl.js"></script>
-  <pre id="console"></pre>
+  <div id="footer" class="credits">
+    <ul style="list-style: none;padding-left:0">
+      <li><a href="#">qwertyoruiopz</a></li>
+      <li><a href="#">flatz</a></li>
+      <li><a href="#">specter</a></li>
+      <li>anonymous contributors</li>
+    </ul>
+  </div>
+
+  <script>
+    function runExploit() {
+      setTimeout(exploit, 1500);
+    }
+
+    function allset() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("allset").style.display = "block";
+    }
+
+    function fail(info) {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("fail").style.display = "block";
+
+      alert(info)
+    }
+  </script>
+
+  <script src="rop.js"></script>
+  <script src="syscalls.js"></script>
+  <script src="payload.js"></script>
+<!-- <script src="loader.js"></script> -->
+  <script src="userland.js"></script>
+  <script src="kernel.js"></script>
 </body>
 </html>
