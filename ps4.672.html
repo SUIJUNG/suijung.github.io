@@ -1,41 +1,95 @@
-<html manifest="offlineCache.manifest">
-<head>
-<title>PS4Jailbreak 6.72(HEN)</title>
-<meta charset="utf-8"/>
-<style>
-.button {
-  background-color: #003263;  
-  border-radius: 5px;
-  color: white;
-  padding: .5em;
-  text-decoration: none;
-  height:100%;
-  display:inline-table;
-}
+<!DOCTYPE html>
+<html>
+<head style="background-color:#050505;">
+  <title>PS4Brew 6.70 - 6.72</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin: -75px 0 0 -75px;
 
-.button:focus,
-.button:hover {
-  background-color: #007bff;
-  color: White;
-}
-</style></head>
-<body>
+      border: 10px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 10px solid #044595;
+      border-left: 10px solid #044595;
+      width: 120px;
+      height: 120px;
+
+      -webkit-animation: spin 1s linear infinite;
+    }
+
+    .info {
+      overflow: hidden;
+      position: fixed;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+
+      color: white;
+      font-size: 45px;
+      font-family: sans-serif;
+
+      transform: translate(-50%, -50%);
+    }
+
+    .credits {
+      overflow: hidden;
+      position: fixed;
+      position: absolute;
+      top: 90%;
+      left: 50%;
+
+      font-size: 16px;
+      font-family: sans-serif;
+      text-align: center;
+
+      transform: translate(-50%, -90%);
+    }
+
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body style="margin:0;background-color:#050505;">
 <script>
-  window.applicationCache.ondownloading=function(){document.getElementById("progress").innerHTML="Caching Halaman Dimulai !!"};
-  window.applicationCache.onprogress=function(a){document.getElementById("progress").innerHTML="Caching Status: "+(Math.round(100*(a.loaded/a.total)))+"% Completed"};
-  window.applicationCache.oncached=function(){document.getElementById("progress").innerHTML="Halaman Cached Berhasil !!";setTimeout(function(){document.getElementById("progress").innerHTML="Matikan Internet & Buka Kembali INTERNET BROWSER untuk Menjalankan HEN !!"; }, 1500);};
-  window.applicationCache.onnoupdate=function(){setTimeout(function(){load_JB(); }, 1500);};
-  window.applicationCache.onerror=function(){setTimeout(function(){load_JB(); }, 1500);};
+    function allset() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("awaiting").style.display = "none";
+      document.getElementById("allset").style.display = "block";
+    }
+
+    function awaitpl() {
+      document.getElementById("loader").style.display = "none";
+      document.getElementById("awaiting").style.display = "block";
+    }
 </script>
-<script src="common/functions.js"></script>
-<script>function print(){}</script>
-<script src="common/exploit.js"></script>
-<h1 id="progress" style="margin-top:30px;text-align:center;">+Offline Cache</h1><hr>
-<div>
-<table align="center" style="width:600px;margin-top:30px;">
-<tr>
-<td align="center" colspan="2"><a href="#" class="button" onclick="load_payload('miraunofficial'); return false" style="width:28%">HEN</a></td>
-</tr>
-</table></div>
+  <div id="loader" class="loader"></div>
+
+  <div id="awaiting" class="info" style="display:none;">
+    Awaiting Payload...
+  </div>
+
+  <div id="allset" class="info" style="display:none;">
+    You're all set!
+  </div>
+
+  <div id="fail" class="info" style="display:none;">
+    Something went wrong :(
+  </div>
+
+  <div id="badfw" class="info" style="display:none;">
+    Only firmware 6.70 - 6.72 is supported!
+  </div>
+
+  <script src="./payload.js"></script>
+  <script src="./rop.js"></script>
+  <script src="./syscalls.js"></script>
+  <script src="./userland.js"></script>
+  <script src="./expl.js"></script>
+  <pre id="console"></pre>
 </body>
 </html>
