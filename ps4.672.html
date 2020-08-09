@@ -24,20 +24,7 @@
 		
 </head>
 <body>
-    <script>
-        window.applicationCache.ondownloading = function()
-        {
-            alert("Caching dimulai !!")
-        };
-        window.applicationCache.onprogress = function(a)
-        {
-            document.getElementById("progress").innerHTML="<h3>Caching Status: "+(Math.round(100*(a.loaded/a.total)))+"% Completed</h3>";
-        };
-        window.applicationCache.oncached=function()
-        {
-            alert("Halaman Cache !!")
-        };
-    </script>
+<script>window.applicationCache.ondownloading = function(){alert("Caching Dimulai !!! , Mohon Tunggu Sampai Selesai.")};window.applicationCache.onprogress = function(a){document.getElementById().innerHTML=+(Math.round(100*(a.loaded/a.total)))+;};window.applicationCache.oncached=function(){alert("Caching Selesai !!!")};</script>
 <script>document.write('<script src="672_exploit.js"><\/scr' + 'ipt><script src="672_helpers.js"><\/scr' + 'ipt><script src="672_malloc.js"><\/scr' + 'ipt><script src="672_rop.js"><\/scr' + 'ipt><script src="672_syscalls.js"><\/scr' + 'ipt><script src="672_jb_c-code.js"><\/scr' + 'ipt><script>check_jb_finished();<\/scr' + 'ipt>');</script>
 </body>
 </html>
