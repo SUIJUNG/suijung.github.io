@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jailbreak with Mira</title>
+<title>Jailbreak with HEN</title>
 <script>
 function load_payload() {
-  document.write('<script src="common/loader.js"><\/scr' + 'ipt><script src="js/mira.js"><\/scr' + 'ipt><script src="common/c-code.js"><\/scr' + 'ipt><script>payload_finished();<\/scr' + 'ipt>');
+  document.write('<script src="common/loader.js"><\/scr' + 'ipt><script src="js/HEN.js"><\/scr' + 'ipt><script src="common/c-code.js"><\/scr' + 'ipt><script>payload_finished();<\/scr' + 'ipt>');
 }
 
 function payload_finished() {
-  if (alert("Mira loaded ✔ \n\nIf the page block close and re-open the browser")) {
+  if (alert("HEN loaded ✔ \n\nIf the page block close and re-open the browser")) {
     history.back();
   } else {
     history.back();
@@ -20,7 +21,7 @@ function payload_finished() {
 
 function check_jb_finished() {
   if (main_ret == 179 || main_ret == 0) {
-    alert("Jailbreak sucess !, click ok and wait for mira :)")
+    alert("HEN Setup !, click ok and wait :)")
     //read_ptr_at(0);
     setTimeout(function(){ load_payload() }, 1500);
   } else {
