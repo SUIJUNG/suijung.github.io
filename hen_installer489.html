@@ -1,4 +1,6 @@
-<script>
+<html>
+ <head>
+  <script>
 var ua=navigator.userAgent,
 	fwv=ua.substring(ua.indexOf("5.0 (")+19,ua.indexOf(") Apple"));
 if(fwv==="4.82"){
@@ -46,7 +48,7 @@ if(fwv==="4.82"){
 	gadget_mod14_addr=0x633860,
 	gadget_mod15_addr=0x39D038,
 	gadget_mod16_addr=0x4F732C;}
-if(fwv==="4.84" || fwv==="4.85" || fwv==="4.89"){
+if(fwv==="4.84"){
 	var toc_addr=0x6F5558,
 	default_vsh_pub_toc=0x6ED5AC,
 	vsh_opd_patch=0x96D5C,
@@ -55,6 +57,96 @@ if(fwv==="4.84" || fwv==="4.85" || fwv==="4.89"){
 	vsh_ps3hen_key_toc=0x70786C,
 	toc_entry1_addr=0x6DA3D0,
 	toc_entry2_addr=0x725B38,
+	toc_entry3_addr=0x6DA3C8,
+	toc_entry4_addr=0x740000,
+	toc_entry5_addr=0x6EB6C8,
+	gadget1_addr=0x097604,
+	gadget2_addr=0x60A0E4,
+	gadget3_addr=0x0D505C,
+	gadget4_addr=0x229838,
+	gadget5_addr=0x12BB1C,
+	gadget6_addr=0x615CDC,
+	gadget7_addr=0x01FFD0,
+	gadget8_addr=0x020000,
+	gadget9_addr=0x029B08,
+	gadget10_addr=0x62E024,
+	gadget11_addr=0x59A4B0,
+	gadget12_addr=0x0C864C,
+	gadget13_addr=0x48E5A8,
+	gadget14_addr=0x48C7A0,
+	gadget15_addr=0x489C88,
+	gadget_mod1_addr=0x60EFD8,
+	gadget_mod2_addr=0x013B74,
+	gadget_mod3_addr=0x0B8E00,
+	gadget_mod4a_addr=0x0D9684,
+	gadget_mod4b_addr=0x42C778,
+	gadget_mod4c_addr=0x054AF0,
+	gadget_mod5_addr=0x4238DC,
+	gadget_mod6_addr=0x020C00,
+	gadget_mod7_addr=0x01A6AC,
+	gadget_mod8_addr=0x2BACB8,
+	gadget_mod9_addr=0x010B20,
+	gadget_mod10_addr=0x1C5794,
+	gadget_mod11_addr=0x18B144,
+	gadget_mod12_addr=0x6331FC,
+	gadget_mod13_addr=0x336870,
+	gadget_mod14_addr=0x633900,
+	gadget_mod15_addr=0x39D038,
+	gadget_mod16_addr=0x4F732C;}
+if(fwv==="4.85"){
+	var toc_addr=0x6F5558,
+	default_vsh_pub_toc=0x6ED5AC,
+	vsh_opd_patch=0x96D5C,
+	vsh_opd_addr=0x6EBB70,
+	vsh_toc_addr_screenshot=0x72067C,
+	vsh_ps3hen_key_toc=0x70786C,
+	toc_entry1_addr=0x6DA3D0,
+	toc_entry2_addr=0x725B38,
+	toc_entry3_addr=0x6DA3C8,
+	toc_entry4_addr=0x740000,
+	toc_entry5_addr=0x6EB6C8,
+	gadget1_addr=0x097604,
+	gadget2_addr=0x60A0E4,
+	gadget3_addr=0x0D505C,
+	gadget4_addr=0x229838,
+	gadget5_addr=0x12BB1C,
+	gadget6_addr=0x615CDC,
+	gadget7_addr=0x01FFD0,
+	gadget8_addr=0x020000,
+	gadget9_addr=0x029B08,
+	gadget10_addr=0x62E024,
+	gadget11_addr=0x59A4B0,
+	gadget12_addr=0x0C864C,
+	gadget13_addr=0x48E5A8,
+	gadget14_addr=0x48C7A0,
+	gadget15_addr=0x489C88,
+	gadget_mod1_addr=0x60EFD8,
+	gadget_mod2_addr=0x013B74,
+	gadget_mod3_addr=0x0B8E00,
+	gadget_mod4a_addr=0x0D9684,
+	gadget_mod4b_addr=0x42C778,
+	gadget_mod4c_addr=0x054AF0,
+	gadget_mod5_addr=0x4238DC,
+	gadget_mod6_addr=0x020C00,
+	gadget_mod7_addr=0x01A6AC,
+	gadget_mod8_addr=0x2BACB8,
+	gadget_mod9_addr=0x010B20,
+	gadget_mod10_addr=0x1C5794,
+	gadget_mod11_addr=0x18B144,
+	gadget_mod12_addr=0x6331FC,
+	gadget_mod13_addr=0x336870,
+	gadget_mod14_addr=0x633900,
+	gadget_mod15_addr=0x39D038,
+	gadget_mod16_addr=0x4F732C;}
+if((fwv==="4.86")||(fwv==="4.87")||(fwv==="4.88")||(fwv==="4.89")){
+	var toc_addr=0x6F5558,
+	default_vsh_pub_toc=0x6ED5AC,
+	vsh_opd_patch=0x96D5C,
+	vsh_opd_addr=0x6EBB70,
+	vsh_toc_addr_screenshot=0x72082C,
+	vsh_ps3hen_key_toc=0x707A1C,
+	toc_entry1_addr=0x6DA3D0,
+	toc_entry2_addr=0x725CE8,
 	toc_entry3_addr=0x6DA3C8,
 	toc_entry4_addr=0x740000,
 	toc_entry5_addr=0x6EB6C8,
@@ -126,11 +218,11 @@ var xtra_data,
 	filesystem='CELL_FS_FAT',
 	mount_path='/dev_rewrite',
 	fail_msg_frag="<h1><span style='color:red'>Eksploitasi GAGAL! ,Silahkan ulangi lagi dengan cara Refresh Browser.</h1></span>",
-	progress_msg_frag1="<h1>Inisialisasi ...",
+	progress_msg_frag1="<h1>Inisialisasi... ",
 	progress_msg_frag2='%</h1>',
 	write_file = "/dev_rewrite/vsh/resource/explore/xmb/category_network.xml",
 	baseURL = window.location.href.replace(/[^/]*$/, ''),
-	write_file_contents='<?xml version="1.0" encoding="UTF-8"?><XMBML version="1.0"><View id="root"><Attributes><Table key="hen"><Pair key="focus_priority"><String>-1</String></Pair></Table></Attributes><Items><Query class="type:x-xmb/folder-pixmap" key="hen" attr="hen" src="#hen_link"/><Query class="type:x-xmb/folder-pixmap" key="seg_premo" src="sel://localhost/nopremo?category_network.xml#seg_premo"/><Query class="type:x-xmb/folder-pixmap" key="seg_browser" src="#seg_browser"/></Items></View><View id="seg_premo"><Items><Item class="type:x-xmb/xmlpremo" key="PRemo" /></Items></View><View id="seg_browser"><Attributes><Table key="browser"><Pair key="icon_rsc"><String>tex_browser</String></Pair><Pair key="icon_notation"><String>WNT_XmbItemBrowser</String></Pair><Pair key="title_rsc"><String>msg_browser</String></Pair></Table></Attributes><Items><Item class="type:x-xmb/xmlwebbrowser" key="browser" attr="browser" /></Items></View><View id="hen_link"><Attributes><Table key="ps3hen_main"><Pair key="icon_rsc"><String>item_tex_Players</String></Pair><Pair key="title"><String>Install HEN</String></Pair><Pair key="info"><String>Download dan instal Paket HEN terbaru (Restart jika sudah selesai)</String></Pair></Table></Attributes><Items><Query class="type:x-xmb/folder-pixmap" key="ps3hen_main" attr="ps3hen_main" src="#ps3hen_pkg" /></Items></View><View id="ps3hen_pkg"><Attributes><Table key="ps3hen_link"><Pair key="info"><String>net_package_install</String></Pair><Pair key="pkg_src"><String>https://www.dropbox.com/s/yjj9djhl7n1nws8/489hen_sign.pkg?dl=1</String></Pair><Pair key="pkg_src_qa" ><String>https://www.dropbox.com/s/yjj9djhl7n1nws8/489hen_sign.pkg?dl=1</String></Pair><Pair key="content_name"><String>msg_install</String></Pair><Pair key="content_id"><String>CUSTOM-INSTALLER_00-0000000000000000</String></Pair><Pair key="prod_pict_path"><String>'+baseURL+'hendl.png</String></Pair></Table></Attributes><Items><Item class="type:x-xmb/xmlnpsignup" key="ps3hen_link" attr="ps3hen_link" /></Items></View></XMBML>';
+	write_file_contents='<?xml version="1.0" encoding="UTF-8"?><XMBML version="1.0"><View id="root"><Attributes><Table key="hen"><Pair key="focus_priority"><String>-1</String></Pair></Table></Attributes><Items><Query class="type:x-xmb/folder-pixmap" key="hen" attr="hen" src="#hen_link"/><Query class="type:x-xmb/folder-pixmap" key="seg_premo" src="sel://localhost/nopremo?category_network.xml#seg_premo"/><Query class="type:x-xmb/folder-pixmap" key="seg_browser" src="#seg_browser"/></Items></View><View id="seg_premo"><Items><Item class="type:x-xmb/xmlpremo" key="PRemo" /></Items></View><View id="seg_browser"><Attributes><Table key="browser"><Pair key="icon_rsc"><String>tex_browser</String></Pair><Pair key="icon_notation"><String>WNT_XmbItemBrowser</String></Pair><Pair key="title_rsc"><String>msg_browser</String></Pair></Table></Attributes><Items><Item class="type:x-xmb/xmlwebbrowser" key="browser" attr="browser" /></Items></View><View id="hen_link"><Attributes><Table key="ps3hen_main"><Pair key="icon_rsc"><String>item_tex_Players</String></Pair><Pair key="title"><String>Install HEN</String></Pair><Pair key="info"><String>Download dan instal Paket HEN terbaru (Restart jika sudah selesai)</String></Pair></Table></Attributes><Items><Query class="type:x-xmb/folder-pixmap" key="ps3hen_main" attr="ps3hen_main" src="#ps3hen_pkg" /></Items></View><View id="ps3hen_pkg"><Attributes><Table key="ps3hen_link"><Pair key="info"><String>net_package_install</String></Pair><Pair key="pkg_src"><String>'+baseURL+fwv+'/HEN.pkg</String></Pair><Pair key="pkg_src_qa" ><String>'+baseURL+fwv+'/HEN.pkg</String></Pair><Pair key="content_name"><String>msg_install</String></Pair><Pair key="content_id"><String>CUSTOM-INSTALLER_00-0000000000000000</String></Pair><Pair key="prod_pict_path"><String>'+baseURL+'hendl.png</String></Pair></Table></Attributes><Items><Item class="type:x-xmb/xmlnpsignup" key="ps3hen_link" attr="ps3hen_link" /></Items></View></XMBML>';
 document.write('<html><title>PS3Xploit - HEN Installer</title><div id="result"></div><div id="exploit"></div><div id="trigger"></div></html>');
 function memcpy(dest,src,len)
 {
@@ -510,7 +602,7 @@ function initROP(init)
 		if((j2===jump_2)&&(j1===jump_1)&&(x===xtra_data)&&(sf===stack_frame))
 		{
 			if(t_out!==0){clearTimeout(t_out);}
-			showResult('<h1>');
+			showResult('<h1>Preparing...');
 			triggerX();
 		}
 		else
@@ -532,3 +624,6 @@ function triggerX()
 }
 initROP(true);
 </script>
+ </head>
+ <body></body>
+</html>
